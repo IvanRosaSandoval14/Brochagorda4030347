@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:Brochagorda4030347.ViewModels"
+             x:Class="Brochagorda4030347.MainPage">
+
+    <ContentPage.BindingContext>
+        <viewmodel:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <Image Source="brocha.jfif"
+                   HeightRequest="185"
+                   Aspect="AspectFit"
+                   SemanticProperties.Description="dot net bot in a race car number eight" />
+            <Label Text="Calcule el Presupuesto de Pintura:"
+                   Style="{StaticResource Headline}"
+                   SemanticProperties.HeadingLevel="Level1" />
+            <Entry Placeholder="Ingrese el Área en m²"
+                   Keyboard="Numeric"
+                   Text="{Binding Area}" />
+            <Entry Placeholder="Ingrese el Costo por m²"
+                   Keyboard="Numeric"
+                   Text="{Binding CostPerSquareMeter}" />
+            <Button Text="Calcular"
+                    Command="{Binding CalculateBudgetCommand}"
+                    HorizontalOptions="Fill" />
+            <Label Text="{Binding Result}"
+                   Style="{StaticResource SubHeadline}"
+                   SemanticProperties.HeadingLevel="Level2" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
